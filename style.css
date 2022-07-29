@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --Very-dark-blue: hsl(233, 47%, 7%);
+  --Dark-desaturated-blue: hsl(244, 38%, 16%);
+  --Soft-violet: hsl(277, 64%, 61%);
+  --White: hsl(0, 0%, 100%);
+  --Slightly-transparent-white: hsla(0, 0%, 100%, 0.75);
+  --Slightly-transparent: hsla(0, 0%, 100%, 0.6);
+  --font-primary: 'Inter', sans-serif;
+}
+body {
+  font-family: var(--font-primary);
+  color: var(--White);
+}
+.main {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  background-color: var(--Very-dark-blue);
+}
+.main__container {
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.main__content {
+  background-color: var(--Dark-desaturated-blue);
+  display: grid;
+}
+.container {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+/* --container__texts */
+.title {
+  font-size: 35px;
+  padding: 0 0 20px 0;
+}
+.title__purple {
+  color: var(--Soft-violet);
+}
+.paragraph {
+  font-weight: 300;
+  line-height: 1.5;
+}
+/* --container__preview */
+.container__preview {
+  display: flex;
+  justify-content: space-between;
+}
+.paragraph--preview {
+  font-size: 25px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+}
+.preview__stats {
+  font-weight: 300;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+/* --main_picture */
+.main__picture {
+  position: relative;
+  width: 100%;
+  height: 446px;
+  overflow: hidden;
+}
+.main__picture::before {
+  content: "";
+  background-image: linear-gradient(hsl(277, 94%, 31%, 50%) 0%, hsl(277, 94%, 31%, 50%) 100%), url('./images/image-header-desktop.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@media (max-width:810px) {
+  .main__container {
+    width: 60%;
+    grid-template-columns: 1fr;
+  }
+  .main__picture {
+    grid-row: 1/2;
+  }
+  /* --container--texts */
+  .container {
+    text-align: center;
+    padding: 40px 0;
+    gap: 40px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .container__preview {
+    flex-direction: column;
+    gap: 20px;
+  }  
+}
+@media (max-width: 425px) {
+  .main__container {
+    grid-template-rows: max-content 1fr;
+    width: 90%;
+    margin: 20px auto;
+  }
+  .main__picture {
+    height: 300px;
+  }
+}
+/* FINISH */
